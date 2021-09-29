@@ -33,12 +33,12 @@ def myCallback(i1):
     sleep(0.5)
     GPIO.output(p1, 0)
     sleep(0.5)
-    
+
 # LED 2 threaded callback function:
 def myCallback2(i2):
-    GPIO.output(p1, 1)
+    GPIO.output(p2, 1)
     sleep(0.5)
-    GPIO.output(p1, 0)
+    GPIO.output(p2, 0)
     sleep(0.5)
 
 GPIO.add_event_detect(i1, GPIO.RISING, callback= myCallback, bouncetime=100)
