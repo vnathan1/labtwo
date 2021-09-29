@@ -19,6 +19,9 @@ i2 = 23 # Button 2
 GPIO.setup(p1, GPIO.OUT) # Assign LED 1 output pin
 GPIO.setup(p3, GPIO.OUT) # Assign LED 3 output pin
 
+# Initial conditions:
+GPIO.output(p1, 0)
+
 GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
