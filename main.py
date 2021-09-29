@@ -20,10 +20,14 @@ GPIO.setup(p3, GPIO.OUT) # Assign LED 3 output pin
 GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
-#Thread callback function:
+# LED 1 threaded callback function:
 def myCallback(i1):
   # Put code here
-  print("ffuk")
+    GPIO.output(p1, 0)
+    sleep(0.5)
+    GPIO.output(p1, 1)
+    sleep(0.5)
+
 
 GPIO.add_event_detect(i1, GPIO.RISING, callback= myCallback, bouncetime=100)
 
