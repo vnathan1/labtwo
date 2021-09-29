@@ -17,19 +17,15 @@ i1 = 22 # Button 1
 i2 = 23 # Button 2 
 
 GPIO.setup(p3, GPIO.OUT) # Assign LED 3 output pin
-GPIO.setup(i1, GPIO.IN, wave=GPIO.wave)
-GPIO.setip(i2, GPIO.IN, wave=GPIO.wave)
+GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
 
 #Thread callback function:
-def wave1(i1):
+def myCallback(i1):
   # Put code here
-  return
-def wave2(i2):
-  return
+  print("ffuk")
 
-GPIO.add_event_detect(i1, GPIO.RISING, callback= wave1, bouncetime=100)
-
-GPIO.add_event_detect(i2, GPIO.RISING, callback= wave2, bouncetime=100)
+GPIO.add_event_detect(i1, GPIO.RISING, callback= myCallback, bouncetime=100)
 
 # LED 3 Constant Blinking:
 try:
