@@ -1,36 +1,36 @@
-import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO # Import RPi.GPIO module
 
-from time import sleep
-GPIO.setmode(GPIO.BCM) 
+from time import sleep # For LED 3 Constant Blinking
+GPIO.setmode(GPIO.BCM) # BCM port numbering
 
-# Pin Numbers:
+# All Pin Numbers:
 p1 = 17 # 1st LED pin 
 p2 = 27 # 2nd LED pin
 p3 = 18 # 3rd LED pin 
-i1 = 22 # Button 1
-i2 = 23 # Button 2 
+i1 = 22 # Button 1 Input pin
+i2 = 23 # Button 2 Input pin
 
 GPIO.setup(p1, GPIO.OUT) # Assign LED 1 output pin
 GPIO.setup(p2, GPIO.OUT) # Assign LED 2 output pin
 GPIO.setup(p3, GPIO.OUT) # Assign LED 3 output pin
 
-# Initial conditions:
+# Threaded Callback setup
 GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(i2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # LED 1 PWM object 
-pwm1 = GPIO.PWM(p1,100)
+pwm1 = GPIO.PWM(p1,1)
 # LED 2 PWM object 
-pwm2 = GPIO.PWM(p2,100)
+pwm2 = GPIO.PWM(p2,1)
 
 
-# LED 1 threaded callback function:
+# LED 1 Threaded Callback function:
 def myCallback(i1):
     pwm1.start(0)
-    for dc in range(0,100,1):
+    for dc in range(0,1,0.01):
       pwm1.ChangeDutyCycle(dc)
       sleep(0.01)
-    for dc in range(100,-1,-1):
+    for dc in range(1,-0.01,-0.01):
       pwm1.ChangeDutyCycle(dc)
       sleep(0.01)
 
@@ -38,10 +38,10 @@ def myCallback(i1):
 # LED 2 threaded callback function:
 def myCallback2(i2):
     pwm2.start(0)
-    for dc in range(0,100,1):
+    for dc in range(0,1,0.01):
       pwm2.ChangeDutyCycle(dc)
       sleep(0.01)
-    for dc in range(100,-1,-1):
+    for dc in range(1,-0.01,-0.01):
       pwm2.ChangeDutyCycle(dc)
       sleep(0.01)
 
