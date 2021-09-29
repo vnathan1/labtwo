@@ -26,7 +26,6 @@ pwm1 = GPIO.PWM(p1,100)
 # LED 2 PWM object 
 pwm2 = GPIO.PWM(p2,100)
 
-
 # LED 1 Threaded Callback function for i1 (pin GPIO22):
 def myCallback(i1):
     pwm1.start(0) # Start PWM cycle at 0% duty cycle
@@ -60,7 +59,6 @@ try:
     GPIO.output(p3, 0) # Sets LED 3 (pin GPIO18) to 0 Volts
     sleep(0.5)# Waits 0.5 seconds (Totals to 1 second, i.e. 1 Hz)
   
-
 # Exception Handling for exiting program smoothly:
 except KeyboardInterrupt: # if user hits Ctrl-C
   print('\nExiting')
