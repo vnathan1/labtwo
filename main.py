@@ -36,7 +36,7 @@ def myCallback(i1):
     for dc in range(101):
       pwm1.ChangeDutyCycle(dc)
       sleep(0.01)
-    for dc in range(101):
+    for dc in range(-101):
       pwm1.ChangeDutyCycle(dc)
       sleep(0.01)
       
