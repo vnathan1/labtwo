@@ -21,8 +21,6 @@ GPIO.setup(p2, GPIO.OUT) # Assign LED 2 output pin
 GPIO.setup(p3, GPIO.OUT) # Assign LED 3 output pin
 
 # Initial conditions:
-GPIO.output(p1, 0)
-GPIO.output(p2, 0)
 GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(i2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
