@@ -33,10 +33,10 @@ pwm1 = GPIO.PWM(p1,100)
 def myCallback(i1):
   # Put code here
     pwm1.start(0)
-    for dc in range(101):
+    for dc in range(0,100,1):
       pwm1.ChangeDutyCycle(dc)
       sleep(0.01)
-    for dc in range(-101):
+    for dc in range(100,0,-1):
       pwm1.ChangeDutyCycle(dc)
       sleep(0.01)
       
