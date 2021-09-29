@@ -27,9 +27,9 @@ GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(i2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # LED 1 PWM object 
-pwm1 = GPIO.PWM(p1,1)
+pwm1 = GPIO.PWM(p1,100)
 # LED 2 PWM object 
-pwm2 = GPIO.PWM(p2,1)
+pwm2 = GPIO.PWM(p2,100)
 
 
 # LED 1 threaded callback function:
