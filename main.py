@@ -27,14 +27,14 @@ GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(i2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # LED 1 PWM object at 1 Hz:
-pwm1 = GPIO.PWM(p1,1)
+pwm1 = GPIO.PWM(p1,100)
 
 # LED 1 threaded callback function:
 def myCallback(i1):
   # Put code here
     pwm1.start(0)
     while 1:
-      for dc in range(1):
+      for dc in range(101):
         pwm1.ChangeDutyCycle(dc)
         sleep(0.01)
 
