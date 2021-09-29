@@ -16,4 +16,4 @@ while True:
   GPIO.output(p3, 0)
   sleep(0.5)
   GPIO.output(p3, 1)
-  sleep(0.5)
+  sleep(0.89)
