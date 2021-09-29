@@ -1,12 +1,6 @@
 import RPi.GPIO as GPIO
 
 from time import sleep
-''' Pin Setup
-led 1 = GPIO17
-led 2 = GPIO27
-led 3 = GPIO18
-button1 = GPIO22
-button2 = GPIO23 '''
 GPIO.setmode(GPIO.BCM) 
 
 # Pin Numbers:
@@ -32,11 +26,11 @@ pwm2 = GPIO.PWM(p2,100)
 
 # LED 1 threaded callback function:
 def myCallback(i1):
-    pwm1.start(0)
-    for dc in range(0,100,1):
+    pwm1.start(-1)
+    for dc in range(-1,100,1):
       pwm1.ChangeDutyCycle(dc)
       sleep(0.01)
-    for dc in range(100,0,-1):
+    for dc in range(100,-1,-1):
       pwm1.ChangeDutyCycle(dc)
       sleep(0.01)
 
