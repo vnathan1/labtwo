@@ -53,14 +53,14 @@ GPIO.add_event_detect(i2, GPIO.RISING, callback= myCallback2, bouncetime=100)
 try:
   while True: # Loop runs continuously
     GPIO.output(p3, 1) # Sets LED 3 (pin GPIO18) to 3.3 Volts
-    sleep(0.5)
+    sleep(0.5) # Waits 0.5 seconds (Totals to 1 second, i.e. 1 Hz)
     GPIO.output(p3, 0) # Sets LED 3 (pin GPIO18) to 0 Volts
-    sleep(0.5)
+    sleep(0.5)# Waits 0.5 seconds (Totals to 1 second, i.e. 1 Hz)
   
 
 # Exception Handling for exiting program smoothly:
-except KeyboardInterrupt: 
+except KeyboardInterrupt: # if user hits Ctrl-C
   print('\nExiting')
-except Exception as e:
+except Exception as e: # Catches other errors
   print('\ne')
-GPIO.cleanup()
+GPIO.cleanup() # Cleans up GPIO ports
