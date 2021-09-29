@@ -26,13 +26,17 @@ GPIO.output(p2, 0)
 GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(i2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
+# LED 1 PWM object at 1 Hz:
+pwm1 = GPIO.PWM(p1,1)
+
 # LED 1 threaded callback function:
 def myCallback(i1):
   # Put code here
-    GPIO.output(p1, 1)
-    sleep(0.5)
-    GPIO.output(p1, 0)
-    sleep(0.5)
+    pwm1.start(0)
+    while 1:
+      for dc in range(1):
+        pwm1.ChangeDutyCycle(dc)
+        sleep(0.01)
 
 # LED 2 threaded callback function:
 def myCallback2(i2):
@@ -41,8 +45,9 @@ def myCallback2(i2):
     GPIO.output(p2, 0)
     sleep(0.5)
 
+# Execute LED 1 blink function if port 1 goes HIGH
 GPIO.add_event_detect(i1, GPIO.RISING, callback= myCallback, bouncetime=100)
-
+# Execute LED 2 blink function if port 2 goes HIGH
 GPIO.add_event_detect(i2, GPIO.RISING, callback= myCallback2, bouncetime=100)
 
 # LED 3 Constant Blinking:
