@@ -1,3 +1,6 @@
+# Vivek Nathan
+# Lab 2 Code 
+
 import RPi.GPIO as GPIO # Import RPi.GPIO module
 
 from time import sleep # For LED 3 Constant Blinking
