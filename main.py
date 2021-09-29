@@ -17,7 +17,7 @@ GPIO.setup(p1, GPIO.OUT) # Assign LED 1 output pin
 GPIO.setup(p2, GPIO.OUT) # Assign LED 2 output pin
 GPIO.setup(p3, GPIO.OUT) # Assign LED 3 output pin
 
-# Threaded Callback setup
+# Threaded callback setup for LED 1 & LED 2
 GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(i2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
@@ -31,10 +31,10 @@ pwm2 = GPIO.PWM(p2,100)
 def myCallback(i1):
     pwm1.start(0) # Start PWM cycle at 0% duty cycle
     for dc in range(0,100,1): # Iterate PWM from 0 to 100 in increments of 1
-      pwm1.ChangeDutyCycle(dc)
+      pwm1.ChangeDutyCycle(dc) # Set duty cycle for off to on
       sleep(0.005) # Sleep 5 ms (With this value, the total time of the wave cycle is 1 second, therefore it is a 1 Hz Cycle) 
-    for dc in range(100,-1,-1):
-      pwm1.ChangeDutyCycle(dc)
+    for dc in range(100,-1,-1): # Iterate PWM back to 0 in increments of 1
+      pwm1.ChangeDutyCycle(dc) # Set duty cycle for on to off
       sleep(0.005) # Sleep 5 ms (With this value, the total time of the wave cycle is 1 second, therefore it is a 1 Hz Cycle) 
 
 # LED 2 threaded callback function for i2 (pin GPIO23): *** Identical function
