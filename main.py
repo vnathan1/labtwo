@@ -27,9 +27,9 @@ GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(i2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # LED 1 PWM object 
-pwm1 = GPIO.PWM(p1,100)
+pwm1 = GPIO.PWM(p1,1)
 # LED 2 PWM object 
-pwm2 = GPIO.PWM(p2,100)
+pwm2 = GPIO.PWM(p2,1)
 
 
 # LED 1 threaded callback function:
@@ -41,6 +41,7 @@ def myCallback(i1):
     for dc in range(100,0,-1):
       pwm1.ChangeDutyCycle(dc)
       sleep(0.01)
+
       
 # LED 2 threaded callback function:
 def myCallback2(i2):
