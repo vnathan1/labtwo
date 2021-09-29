@@ -33,10 +33,14 @@ pwm1 = GPIO.PWM(p1,100)
 def myCallback(i1):
   # Put code here
     pwm1.start(0)
-    while 1:
-      for dc in range(101):
-        pwm1.ChangeDutyCycle(dc)
-        sleep(0.01)
+    for dc in range(101):
+      pwm1.ChangeDutyCycle(dc)
+      sleep(0.01)
+    for dc in range(101):
+      pwm1.ChangeDutyCycle(dc)
+      sleep(0.01)
+      
+      
 
 # LED 2 threaded callback function:
 def myCallback2(i2):
