@@ -25,9 +25,9 @@ GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # LED 1 threaded callback function:
 def myCallback(i1):
   # Put code here
-    GPIO.output(p1, 0)
-    sleep(0.5)
     GPIO.output(p1, 1)
+    sleep(0.5)
+    GPIO.output(p1, 0)
     sleep(0.5)
 
 
