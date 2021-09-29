@@ -11,9 +11,15 @@ button2 = GPIO23 '''
 GPIO.setmode(GPIO.BCM) 
 p3 = 18 # 3rd LED pin #
 GPIO.setup(p3, GPIO.OUT) # Assign pin as output
-
-while True:
-  GPIO.output(p3, 0)
-  sleep(0.5)
-  GPIO.output(p3, 1)
-  sleep(0.5)
+try:
+  while True:
+    GPIO.output(p3, 0)
+    sleep(0.5)
+    GPIO.output(p3, 1)
+    sleep(0.5)
+# Exception Handling for closing program
+except KeyboardInterrupt:
+  print('\nExiting')
+except Exception as e:
+  print('\ne')
+GPIO.cleanup()
